@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic Auth</title>
+</head>
+<body>
+    <div id="login">
+        <h1>Login</h1>
+        <input type="text" id="username" placeholder="Username">
+        <button onclick="signin()">Sign In</button>
+    </div>
+
+    <div id="dashboard" style="display:none">
+        <h1>Welcome!</h1>
+        <p>Hello, <span id="user"></span></p>
+        <button onclick="signout()">Sign Out</button>
+    </div>
+
+    <script>
+        function signin() {
+            const username = document.getElementById('username').value;
+            if (username) {
+                document.getElementById('login').style.display = 'none';
+                document.getElementById('dashboard').style.display = 'block';
+                document.getElementById('user').textContent = username;
+            }
+        }
+
+        function signout() {
+            document.getElementById('dashboard').style.display = 'none';
+            document.getElementById('login').style.display = 'block';
+            document.getElementById('username').value = '';
+        }
+    </script>
+</body>
+</html>
